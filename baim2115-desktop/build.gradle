@@ -1,0 +1,23 @@
+plugins {
+    id 'application'
+}
+application {
+    mainClassName = 'edu.bbte.idde.baim2115.desktop.Main'
+}
+
+apply plugin: 'application'
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            groupId = "edu.bbte.idde.baim2115"
+            artifactId = "baim2115-desktop"
+            version = "1.0-SNAPSHOT"
+            from components.java
+        }
+    }
+}
+
+dependencies {
+   implementation project(':baim2115-backend')
+}

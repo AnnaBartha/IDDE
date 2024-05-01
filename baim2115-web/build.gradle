@@ -1,0 +1,46 @@
+plugins {
+    id 'war'
+}
+
+dependencies {
+    implementation project(':baim2115-backend')
+    compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
+    implementation 'com.google.code.gson:gson:2.8.8'
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
+    implementation 'org.thymeleaf:thymeleaf:3.1.2.RELEASE'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.15.2'
+
+}
+
+def deploymentName = 'baim2115-web'
+
+def tomcatHome = System.getenv('CATALINA_HOME')
+logger.quiet("Tomcat home detected as '${tomcatHome}'")
+
+task deploy(type: Copy, dependsOn: 'war') {
+
+    doFirst {
+        if (!tomcatHome) {
+            throw new InvalidUserDataException("Tomcat home (CATALINA_HOME) not set")
+        }
+    }
+
+    // a "war" task kimenetét másoljuk
+    from war.archiveFile
+
+    // átnevezzük a war állományt a megfelelő contextRoot kialakításáért
+    rename war.archiveFileName.get(), "${deploymentName}.war"
+
+    into "${tomcatHome}/webapps"
+}
+
+
+task undeploy(type: Delete) {
+    doFirst {
+        if (!tomcatHome) {
+            throw new InvalidUserDataException("Tomcat home (CATALINA_HOME) not set")
+        }
+    }
+    delete "${tomcatHome}/webapps/${deploymentName}.war"
+}

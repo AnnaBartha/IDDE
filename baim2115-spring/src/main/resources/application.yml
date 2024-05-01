@@ -1,0 +1,4 @@
+#active: { $SPRING_PROFILES_ACTIVE: jdbc }
+spring.profiles.active: "jpa"
+
+spring.jpa.show-sql: true

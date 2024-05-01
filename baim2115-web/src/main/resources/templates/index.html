@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" th:lang="en">
+<head>
+    <title>Ingatlanok</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1>Ingatlanok</h1>
+<h2>Ingatlanok listaja</h2>
+<table border="1">
+    <tr>
+        <th>Ingatlan ID</th>
+        <th>Orszag</th>
+        <th>Varos</th>
+        <th>Negyzetmeter</th>
+        <th>Termek ara</th>
+        <th>Tulaj neve</th>
+        <th>Elerhetoseg</th>
+    </tr>
+    <tr th:each="ingatlan : ${ingatlanok}">
+        <td th:text="${ingatlan.id}"></td>
+        <td th:text="${ingatlan.orszag}"></td>
+        <td th:text="${ingatlan.varos}"></td>
+        <td th:text="${ingatlan.negyzetmeter}"></td>
+        <td th:text="${ingatlan.termekAra}"></td>
+        <td th:text="${ingatlan.tulajNeve}"></td>
+        <td th:text="${ingatlan.elerhetoseg}"></td>
+    </tr>
+</table>
+<p><a th:href="@{/logout}">Logout</a></p>
+</body>
+</html>

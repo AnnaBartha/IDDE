@@ -1,0 +1,8 @@
+#profile: jdbc
+#username: root
+#password: BarthaAnna*2002
+#poolsize: 10
+#jdbcDriver: org.mariadb.jdbc.Driver #com.mysql.cj.jdbc.Driver
+#database: idde
+#url: localhost
+#port: 3306

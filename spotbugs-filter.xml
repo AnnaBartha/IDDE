@@ -1,0 +1,33 @@
+<FindBugsFilter>
+    <Match>
+        <Class name="~.*MapperImpl"/>
+    </Match>
+    <Match>
+        <Or>
+            <Bug pattern="RV_NEGATING_RESULT_OF_COMPARETO"/>
+            <Bug pattern="NM_CLASS_NAMING_CONVENTION"/>
+            <Bug pattern="NM_FIELD_NAMING_CONVENTION"/>
+            <Bug pattern="SW_SWING_METHODS_INVOKED_IN_SWING_THREAD"/>
+            <Bug pattern="REC_CATCH_EXCEPTION"/>
+            <Bug pattern="SE_NO_SERIALVERSIONID"/>
+            <Bug pattern="SE_TRANSIENT_FIELD_NOT_RESTORED"/>
+            <Bug pattern="SE_BAD_FIELD"/>
+            <Bug pattern="SE_BAD_FIELD_STORE"/>
+            <Bug pattern="DM_DEFAULT_ENCODING"/>
+            <Bug pattern="NP_NULL_PARAM_DEREF"/>
+            <Bug pattern="NP_NULL_ON_SOME_PATH_FROM_RETURN_VALUE"/>
+            <Bug pattern="ODR_OPEN_DATABASE_RESOURCE"/>
+            <Bug pattern="OBL_UNSATISFIED_OBLIGATION"/>
+            <Bug pattern="SQL_NONCONSTANT_STRING_PASSED_TO_EXECUTE"/>
+            <Bug pattern="SQL_PREPARED_STATEMENT_GENERATED_FROM_NONCONSTANT_STRING"/>
+            <Bug pattern="EI_EXPOSE_REP"/>
+            <Bug pattern="EI_EXPOSE_REP2"/>
+            <Bug pattern="MS_EXPOSE_REP"/>
+            <Bug pattern="UWF_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR"/>
+            <Bug pattern="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE"/>
+            <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE"/>
+            <Bug pattern="BC_UNCONFIRMED_CAST_OF_RETURN_VALUE"/>
+            <Bug pattern="PI_DO_NOT_REUSE_PUBLIC_IDENTIFIERS_CLASS_NAMES"/>
+        </Or>
+    </Match>
+</FindBugsFilter>

@@ -1,0 +1,6 @@
+rootProject.name = 'baim2115-idde'
+include 'baim2115-desktop'
+include 'baim2115-web'
+include 'baim2115-backend'
+include 'baim2115-spring'
+

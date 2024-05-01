@@ -1,0 +1,25 @@
+dependencies {
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    implementation 'com.zaxxer:HikariCP:5.1.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.15.2'
+
+
+}
+
+publishing {
+    publications {
+        mavenPublication(MavenPublication) {
+            groupId = "edu.bbte.idde.baim2115"
+            artifactId = "baim2115-backend"
+            version = "1.0-SNAPSHOT"
+            from components.java
+        }
+    }
+}
+
+def profile = System.getenv("PROFILE") ?: "inmemory"
+
+logger.quiet(profile)
+
+apply from: "build-${profile}.gradle"
